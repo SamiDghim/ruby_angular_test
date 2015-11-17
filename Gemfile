@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#added for windows users
+gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 
 gem 'haml-rails'
 gem 'coffee-rails'
