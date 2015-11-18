@@ -11,6 +11,6 @@
     templateUrl: 'assets/templates/auth/_register.html'
 
   .when "/home",
-    templateUrl: 'assets/templates/home/index.html'
+      templateUrl: 'assets/templates/home/index.html'
 
   .otherwise redirectTo: "/home"

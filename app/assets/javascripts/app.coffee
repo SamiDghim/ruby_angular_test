@@ -2,4 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-@cooking = angular.module( 'cookingRecipes', ['Devise', 'ngRoute', 'templates'] )
+@cooking = angular.module( 'cookingRecipes', ['Devise', 'ngRoute','ngResource', 'templates'] )
+
+@cooking.factory 'Recipe', ['$resource', ($resource) ->
+  $resource('/recipes/:id.json', {id: '@id'}, {update: {method: 'PUT'}})
+]
+

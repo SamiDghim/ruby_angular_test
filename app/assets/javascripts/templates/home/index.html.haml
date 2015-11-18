@@ -4,3 +4,14 @@
   %hr
     %p{ ng_show:  "signedIn()" }
       Welcome {{ user.email }}
+        
+      %ul
+        %li{ 'ng_repeat' => "recipe in recipes"}
+
+          title = {{recipe.title}}
+          Photo = {{recipe.photo}}
+          description = {{recipe.description}}
+          rating = {{recipe.rating}}
+          isfavorite = {{recipe.isfavorite}}
+          photo = {{recipe.photo}}
+          user = {{recipe.user}}
