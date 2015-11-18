@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'recipes/index'
- resources :recipes
+  #Configure Recipe at rails routes
+ resources :recipes , only: [:index]
   devise_for :users
   root to: 'application#angular'
 end
