@@ -7,7 +7,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.boolean :isfavorite
       t.string :photo
       t.string :user
-
       t.timestamps null: false
     end
   end
