@@ -1,27 +1,26 @@
 .home-container{ ng_controller: 'homeCtrl' }
   %h1
-    Anguar/Rails Test
+    Recipes
   %hr
     %p{ ng_show:  "signedIn()" }
       Welcome {{ user.email }}
-      %ul{:ng_repeat => "recipe in recipes"}
-        %li.list-group-item
-          .brdr-bgc-fff-pad-10-box-shad-btm-mrg-20-property-listing
-            .media
-              %a.media-left{ href: "#" }
-                %img.media-object
-              .media-body-fnt-smaller
-                %h4.media-heading
-                  %small.pull-right
-                    {{recipe.rating}}
-                %p.hidden-xs
-                  {{recipe.description}}
-              .media-bottom
-                %small.pull-right
-                  publié :{{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user}}
-
-
-
-
-
-
+    .form-group.has-feedback
+      %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
+      %i.glyphicon.glyphicon-remove-sign.form-control-feedback
+    %ul{ng_repeat: 'recipe in recipes'}
+      %li.list-group-item
+        .media
+          %img.thumbnail.pull-left{alt:'photo'}
+          .media-body
+            %h4.media-heading
+              %small.pull-right
+                {{recipe.rating}}
+              %p
+                {{recipe.title}}
+            %p.hidden-xs
+              {{recipe.description}}
+          .media-bottom
+            %small.pull-right
+              publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par
+              %a{ href: '#/profile/1' }
+                {{recipe.user}}
