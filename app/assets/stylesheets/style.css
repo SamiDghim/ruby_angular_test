@@ -1,0 +1,30 @@
+
+/*! CSS STYLE BY SAMI DGHIM */
+
+/*! BODY */
+
+body {
+     padding: 10px;
+      font-family: Bariol, Helvetica, Arial, sans-serif;
+       font-weight: normal;
+}
+img {
+    height: 90px;
+    width:  90px;
+ margin-right: 20px;
+    margin-left:auto;
+}
+ul :hover{
+    cursor:pointer;
+    background-color: transparent;
+}
+ul{
+    margin-right: 30px;
+    border-radius: 0px ;
+
+   }
+input, input[type="text"]{
+     border: solid;
+        border-radius: 11px ;
+     padding: 9px;
+}
