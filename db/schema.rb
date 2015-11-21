@@ -11,21 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119143538) do
+ActiveRecord::Schema.define(version: 20151121142635) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "ingredients_recipes", id: false, force: :cascade do |t|
-    t.integer "ingredient_id", null: false
-    t.integer "recipe_id",     null: false
-  end
-
-  add_index "ingredients_recipes", ["ingredient_id", "recipe_id"], name: "index_ingredients_recipes_on_ingredient_id_and_recipe_id"
-  add_index "ingredients_recipes", ["recipe_id", "ingredient_id"], name: "index_ingredients_recipes_on_recipe_id_and_ingredient_id"
 
   create_table "recipe_ingredients", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -40,9 +32,9 @@ ActiveRecord::Schema.define(version: 20151119143538) do
     t.integer  "rating"
     t.boolean  "isfavorite"
     t.string   "photo"
-    t.string   "user"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
