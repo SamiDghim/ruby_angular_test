@@ -1,17 +1,30 @@
-@cooking.controller 'homeCtrl', ($scope,Recipe) ->
-  $scope.recipes = Recipe.recipes.index()
- #search for
+@cooking.controller 'homeCtrl', ($scope,restService,Auth) ->
+  counter = 1;
+
+  $scope.recipes = restService.recipes.index()
+  console.log(Auth._currentUser)
+
+ #search for recipe
   $scope.searchRecipe = ->
-    $scope.recipes = Recipe.recipes.index(
+    $scope.recipes = restService.recipes.index(
       search: $scope.search
     )
 
-  #$scope.detailsRecipe = ->
+  $scope.detailsRecipe = (recipe) ->
+    console.log(recipe)
 
   $scope.addRecipe = ->
-    recipe = Recipe.recipes.create($scope.newRecipe)
+    recipe = restService.recipes.create($scope.newRecipe)
     $scope.newRecipe = {}
 
+  #load the next page
+  $scope.loadNextPage  = ->
+    $scope.recipes = restService.recipes.index({page: counter})
+    counter += 1 ;
 
-
-
+  #load previouspage
+  $scope.loadPreviousPage  = ->
+    $scope.recipes = restService.recipes.index({page: counter})
+    counter -= 1 ;
+  $scope.getUser = (user_id) ->
+    restService.user.show(user_id: user_id)
