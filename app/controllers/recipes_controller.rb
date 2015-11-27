@@ -30,8 +30,7 @@ respond_to :json
   end
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :rating, :photo, :user)
-
+    params.require(:recipe).permit(:title, :description,:image,:user_id)
   end
 
 end
