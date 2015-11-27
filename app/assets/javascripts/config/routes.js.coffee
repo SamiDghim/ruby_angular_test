@@ -9,7 +9,9 @@
   .when "/register",
     controller:  'authCtrl'
     templateUrl: 'assets/templates/auth/_register.html'
-
+  .when "/profile",
+    controller: 'profileCtrl'
+    templateUrl: 'assets/templates/profile/profile.html'
   .when "/home",
       templateUrl: 'assets/templates/home/index.html'
 

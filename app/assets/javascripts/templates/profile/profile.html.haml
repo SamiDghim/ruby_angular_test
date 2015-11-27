@@ -1,0 +1,38 @@
+.row
+  .col-md-6{ ng_controller: 'profileCtrl' }
+    %h1
+      User Recipes
+    %hr
+      .form-group
+        %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
+      %ul{ng_repeat: 'recipe in userRecipe'}
+        %li.list-group-item
+          .media
+            %img.thumbnail.pull-left{alt:'photo'}
+            .media-body
+              %h4.media-heading
+                %small.pull-right
+                  {{recipe.rating}}
+                %p
+                  {{recipe.title}}
+              %p.hidden-xs
+                {{recipe.description}}
+            .media-bottom
+              %small.pull-right
+                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user_id}}
+
+  .col-md-4.col-lg-offset-2
+    %h1
+      Add Recipe
+    %hr
+    %form{ ng_submit: 'addRecipe()' ,name:'addRecipeForm'}
+      .form-group
+        %input.form-control{type: 'text', ng_model: 'newRecipe.title', placeholder: 'title'}
+      .form-group
+        %input.form-control{ng_model: 'image', type: 'file',class: 'file'}
+        %label.control-label
+          select file
+        %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description'}
+      .form-group
+        %button.btn{type: 'submit', value:'add'}
+          Add
