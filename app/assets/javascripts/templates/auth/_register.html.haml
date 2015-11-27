@@ -13,10 +13,10 @@
               %i.fa.fa-key
           .form-bottom.contact-form
             %form.input-form{ ng_submit: 'register()',name: 'registerForm' }
-              .form-group.has-feedback{ng_class:"{ 'has-error' : registerForm.name.$invalid && registerForm.name.$dirty ,'has-success' : registerForm.name.$valid && registerForm.name.$dirty }"}
-                %input.form-control{ ng_model: 'user.name', placeholder: 'Your name', type: 'text',name:'name',id: 'nameInput' }
-                %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : registerForm.name.$invalid && registerForm.name.$dirty ,'glyphicon-ok' : registerForm.name.$valid && registerForm.name.$dirty}"}
-                %p{ng_show:'registerForm.name.$invalid && !registerForm.name.$pristine', class:"help-block"}
+              .form-group.has-feedback{ng_class:"{ 'has-error' : registerForm.name.$error.required  && registerForm.name.$dirty ,'has-success' :  registerForm.name.$dirty }"}
+                %input.form-control{ ng_model: 'user.name', placeholder: 'Your name', type: 'text',name:'name',id: 'nameInput'  , required:''  }
+                %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : registerForm.name.$error.required && registerForm.name.$dirty ,'glyphicon-ok' : registerForm.name.$dirty}"}
+                %p{ng_show:'registerForm.name.$error.required  && !registerForm.name.$pristine', class:"help-block"}
                   This is required.
               .form-group.has-feedback{ng_class:"{ 'has-error' : registerForm.email.$invalid && registerForm.email.$dirty ,'has-success' : registerForm.email.$valid && registerForm.email.$dirty }"}
                 %input.form-control{ ng_model: 'user.email', placeholder: 'Email', type: 'email',name:'email',id: 'emailInput' }
