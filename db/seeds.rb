@@ -5,6 +5,14 @@ user1 = User.create(email: 'user1@example.com',password:'password',name:'user1')
 user2 = User.create(email: 'user2@example.com',password:'password',name:'user2')
 user3 = User.create(email: 'user3@example.com',password:'password',name:'user3')
 user4 = User.create(email: 'user4@example.com',password:'password',name:'user4')
+=begin
+
+User.all.each do |user|
+  10.times { |i| user.create(email: "user#{i}@example.com",password:"password#{i}",name:"user#{i}") }
+end
+=end
+
+
 
 # create a list of ingredients
 puts 'Create a list of ingredients '

@@ -20,9 +20,9 @@
             .form-group.has-feedback{ng_class:"{'has-success' : loginForm.password.$valid && loginForm.password.$dirty,'has-error': (loginForm.password.$invalid || loginForm.password.$error.required) && loginForm.password.$dirty }"}
               %input.form-control{ ng_model: 'user.password', placeholder: 'Password', type: 'password',name:'password',id:'inputPassword' , required:'' }
               %span.glyphicon.form-control-feedback{ng_class:"{'glyphicon-ok' : loginForm.password.$dirty && loginForm.password.$valid ,'glyphicon-remove' : (loginForm.password.$invalid || loginForm.password.$error.required) && loginForm.password.$dirty}"}
-              %p{ ng_show:'loginForm.password.$invalid && !loginForm.password.$pristine', class:"help-block"}
+              %p{ ng_show:'loginForm.password.$invalid && !loginForm.password.$pristine && !loginForm.password.$error.required', class:"help-block"}
                 Invalid password.
-              %p{ ng_show:'loginForm.password.required && !loginForm.password.$pristine', class:"help-block"}
+              %p{ ng_show:'loginForm.password.$error.required && !loginForm.password.$pristine', class:"help-block"}
                 This is required.
             %button.btn{ type: 'submit', value: 'Log In',ng_disabled: 'loginForm.$invalid' }
               Sign in

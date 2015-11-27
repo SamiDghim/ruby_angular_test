@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
 
+# the rails gem for pagiantion
+gem 'will_paginate', '~> 3.0.7'
+#rails gem which wraps the beautiful Font Awesome icons library
+gem 'font-awesome-rails', '~> 4.2.0.0'
+gem 'angularjs-file-upload-rails', '~> 1.1.6'
 
 gem 'carrierwave'
-
+#gem 'rmagick'
+gem 'angularjs-rails', '~> 1.2.22'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

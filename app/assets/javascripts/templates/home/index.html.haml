@@ -1,26 +1,34 @@
-.home-container{ ng_controller: 'homeCtrl' }
-  %h1
-    Recipes
-  %hr
-    %p{ ng_show:  "signedIn()" }
-      Welcome {{ user.email }}
-    .form-group.has-feedback
-      %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
-      %i.glyphicon.glyphicon-remove-sign.form-control-feedback
-    %ul{ng_repeat: 'recipe in recipes'}
-      %li.list-group-item
-        .media
-          %img.thumbnail.pull-left{alt:'photo'}
-          .media-body
-            %h4.media-heading
+.row
+  .col-md-6.col-md-offset-3{ ng_controller: 'homeCtrl' }
+    %h1
+      Recipes
+    %hr
+      %p{ ng_show:  "signedIn()" }
+        Welcome {{ user.email }}
+      .form-group.has-feedback
+        %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
+      %ul{ng_repeat: 'recipe in recipes'}
+        %li.list-group-item{ng_click: 'detailsRecipe(recipe)',data_toggle: "modal", data_target: "#timerecord"}
+          .media
+            %img.thumbnail.pull-left{alt:'photo'}
+            .media-body
+              %h4.media-heading
+                %small.pull-right
+                %p
+                  {{recipe.title}}
+              %p.hidden-xs
+                {{recipe.description}}
+            .media-bottom
               %small.pull-right
-                {{recipe.rating}}
-              %p
-                {{recipe.title}}
-            %p.hidden-xs
-              {{recipe.description}}
-          .media-bottom
-            %small.pull-right
-              publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par
-              %a{ href: '#/profile/1' }
-                {{recipe.user}}
+                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }}
+      %button{ng_click: 'loadNextPage()'}
+        Next
+      %button{ng_click: 'loadPreviousPage()'}
+        Previous
+  .col-md-4.col-lg-offset-2
+    %h1
+      Users
+    %hr
+      %ul{ng_repeat: 'user in users'}
+        %li
+          {{user.name}}

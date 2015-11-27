@@ -10,8 +10,6 @@
       recipe = restService.recipes.create($scope.newRecipe)
       $scope.newRecipe = {}
       $location.path 'profile'
-    $scope.rateFunction = (rating) ->
-      console.log('Rating selected: ' + rating);
   ),(error) -> #if user not logged , return the login page
     $location.path 'login'
 
