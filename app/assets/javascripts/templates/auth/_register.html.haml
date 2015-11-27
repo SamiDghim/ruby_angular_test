@@ -1,8 +1,32 @@
-.page-header
-  %h1 Register
-%form{ ng_submit: "register()" }
-  .input-group
-    %input.form-control{ ng_model: "user.email", placeholder: "Email", type: "email" }
-  .input-group
-    %input.form-control{ ng_model: "user.password", placeholder: "Password", type: "password" }
-  %input.btn.btn-default{ type: "submit", value: "Register" }
+.top-content
+  .inner-bg
+    .container
+      .row
+        .col-sm-6.col-sm-offset-3.form-box
+          .form-top
+            .form-top-left
+              %h3
+                Sign up now
+              %p
+                Fill in the form below to get instant access:
+            .form-top-right
+              %i.fa.fa-key
+          .form-bottom.contact-form
+            %form.input-form{ ng_submit: 'register()',name: 'registerForm' }
+              .form-group.has-feedback{ng_class:"{ 'has-error' : registerForm.name.$invalid && registerForm.name.$dirty ,'has-success' : registerForm.name.$valid && registerForm.name.$dirty }"}
+                %input.form-control{ ng_model: 'user.name', placeholder: 'Your name', type: 'text',name:'name',id: 'nameInput' }
+                %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : registerForm.name.$invalid && registerForm.name.$dirty ,'glyphicon-ok' : registerForm.name.$valid && registerForm.name.$dirty}"}
+                %p{ng_show:'registerForm.name.$invalid && !registerForm.name.$pristine', class:"help-block"}
+                  This is required.
+              .form-group.has-feedback{ng_class:"{ 'has-error' : registerForm.email.$invalid && registerForm.email.$dirty ,'has-success' : registerForm.email.$valid && registerForm.email.$dirty }"}
+                %input.form-control{ ng_model: 'user.email', placeholder: 'Email', type: 'email',name:'email',id: 'emailInput' }
+                %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : registerForm.email.$invalid && registerForm.email.$dirty ,'glyphicon-ok' : registerForm.email.$valid && registerForm.email.$dirty}"}
+                %p{ng_show:'registerForm.email.$invalid && !registerForm.email.$pristine', class:"help-block"}
+                  Enter a valid email.
+              .form-group.has-feedback{ng_class:"{'has-success' : registerForm.password.$dirty,'has-error': registerForm.password.$error.required && registerForm.password.$dirty }"}
+                %input.form-control{ ng_model: 'user.password', placeholder: 'Password', type: 'password',name:'password', id:'password' , required:'' }
+                %span.glyphicon.form-control-feedback{ng_class:"{'glyphicon-ok' : registerForm.password.$dirty,'glyphicon-remove' : registerForm.password.$error.required  && registerForm.password.$dirty}"}
+                %p{ ng_show:'registerForm.password.$error.required && !registerForm.password.$pristine', class:"help-block"}
+                  This is required.
+              %button.btn{ type: 'submit', value: 'Register' ,ng_disabled: 'registerForm.$invalid' }
+                Sign me up!
