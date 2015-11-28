@@ -12,6 +12,9 @@
   .when "/profile",
     controller: 'profileCtrl'
     templateUrl: 'assets/templates/profile/profile.html'
+  .when "/recipe/add",
+    controller: 'profileCtrl'
+    templateUrl: 'assets/templates/recipe/add.html'
   .when "/home",
       templateUrl: 'assets/templates/home/index.html'
 
