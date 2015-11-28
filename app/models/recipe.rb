@@ -15,4 +15,9 @@ class Recipe < ActiveRecord::Base
     User.find(user_id).recipes
   end
 
+  #Override the as_json method to include the user:
+  def as_json(options = {})
+    super(options.merge(include: :user))
+  end
+
 end

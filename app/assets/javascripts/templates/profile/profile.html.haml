@@ -19,7 +19,7 @@
                 {{recipe.description}}
             .media-bottom
               %small.pull-right
-                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user_id}}
+                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user.name}}
 
   .col-md-4.col-lg-offset-2
     %h1
