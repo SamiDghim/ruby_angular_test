@@ -12,7 +12,7 @@
             .media-body
               %h4.media-heading
                 %small.pull-right
-                  {{recipe.rating}}
+                  %uib-rating{ ng_model: 'recipe.rating', readonly: 'true', titles: "['one','two','three','four','five']", aria_labelledby: 'default-rating' }
                 %p
                   {{recipe.title}}
               %p.hidden-xs
@@ -31,7 +31,7 @@
         %input.form-control{ng_model: 'image', type: 'file',class: 'file'}
       .form-group
         Rating :
-        %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three']", aria_labelledby: 'default-rating' }
+        %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three','four ','5']", aria_labelledby: 'default-rating' }
         {{newRecipe.rating}}
       .form-group
         %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description'}

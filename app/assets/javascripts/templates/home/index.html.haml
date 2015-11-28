@@ -14,21 +14,17 @@
             .media-body
               %h4.media-heading
                 %small.pull-right
+                  %uib-rating{ ng_model: 'recipe.rating', readonly: 'true', titles: "['one','two','three','four','five']", aria_labelledby: 'default-rating' }
                 %p
                   {{recipe.title}}
               %p.hidden-xs
                 {{recipe.description}}
             .media-bottom
               %small.pull-right
-                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user.name}}
+                publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par
+                %a{href: "#"}
+                  {{recipe.user.name}}
       %button{ng_click: 'loadNextPage()'}
         Next
       %button{ng_click: 'loadPreviousPage()'}
         Previous
-  .col-md-4.col-lg-offset-2
-    %h1
-      Users
-    %hr
-      %ul{ng_repeat: 'user in users'}
-        %li
-          {{user.name}}
