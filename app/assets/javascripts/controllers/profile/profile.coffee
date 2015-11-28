@@ -6,7 +6,6 @@
     $scope.userRecipe = restService.recipes.index(user_id: user.id)
     #function to add recipe for logged user
     $scope.addRecipe = ->
-      $scope.newRecipe.user_id= user.id
       recipe = restService.recipes.create($scope.newRecipe)
       $scope.newRecipe = {}
       $location.path 'profile'

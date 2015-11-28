@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  #only authenticated users can create or update recipe
+  before_filter :authenticate_user!, only: [:create, :update]
+
   protect_from_forgery with: :exception
   protect_from_forgery except: :sign_in
 respond_to :json
@@ -21,7 +24,8 @@ respond_to :json
   end
 
   def create
-    respond_with Recipe.create(recipe_params)
+    #
+    respond_with Recipe.create(recipe_params.merge(user_id: current_user.id))
 
   end
 
@@ -30,7 +34,7 @@ respond_to :json
   end
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description,:image,:user_id)
+    params.require(:recipe).permit(:title, :description)
   end
 
 end
