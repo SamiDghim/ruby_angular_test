@@ -1,10 +1,14 @@
 .row
-  .col-md-6{ ng_controller: 'profileCtrl' }
+  .col-md-6.col-md-offset-3
     %h1
       User Recipes
     %hr
       .form-group
         %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
+      .form-group
+        %a{aria_label:'Left Align',href: '#/recipe/add'}
+          %span.glyphicon.glyphicon-floppy-disk{aria_hidden:'true'}
+          add new recipe
       %ul{ng_repeat: 'recipe in userRecipe'}
         %li.list-group-item
           .media
@@ -20,21 +24,3 @@
             .media-bottom
               %small.pull-right
                 publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user.name}}
-  .col-md-4.col-lg-offset-2
-    %h1
-      Add Recipe
-    %hr
-    %form{ ng_submit: 'addRecipe()' ,name:'addRecipeForm'}
-      .form-group
-        %input.form-control{type: 'text', ng_model: 'newRecipe.title', placeholder: 'title'}
-      .form-group
-        %input.form-control{ng_model: 'image', type: 'file',class: 'file'}
-      .form-group
-        Rating :
-        %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three','four ','5']", aria_labelledby: 'default-rating' }
-        {{newRecipe.rating}}
-      .form-group
-        %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description'}
-      .form-group
-        %button.btn{type: 'submit', value:'add'}
-          Add
