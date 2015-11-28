@@ -20,7 +20,6 @@
             .media-bottom
               %small.pull-right
                 publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user.name}}
-
   .col-md-4.col-lg-offset-2
     %h1
       Add Recipe
@@ -30,8 +29,11 @@
         %input.form-control{type: 'text', ng_model: 'newRecipe.title', placeholder: 'title'}
       .form-group
         %input.form-control{ng_model: 'image', type: 'file',class: 'file'}
-        %label.control-label
-          select file
+      .form-group
+        Rating :
+        %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three']", aria_labelledby: 'default-rating' }
+        {{newRecipe.rating}}
+      .form-group
         %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description'}
       .form-group
         %button.btn{type: 'submit', value:'add'}
