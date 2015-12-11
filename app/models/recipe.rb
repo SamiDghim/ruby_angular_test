@@ -1,30 +1,36 @@
 class Recipe < ActiveRecord::Base
+  #
+  after_initialize :init
+
+  validates :title,:description,:rating, presence: true
 
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+
   belongs_to :user
   mount_uploader :image, ImageUploader
-
+  #isfavorite set to false by default
+   def init
+      self.isfavorite  ||= false
+    end
 
   #select recipes from database where title and description look like the searched recipe
   def self.search(search)
     where('description LIKE ? OR title LIKE ? ', "%#{search}%", "%#{search}%")
   end
-  #return
-  def self.userRecipes(user_id)
-    User.find(user_id).recipes
-  end
-
-  #Override the as_json method to include the user and list of ingredients:
+  #Override the as_json method to include the user and recipe ingredients:
   def as_json(options = {})
-    super(options.merge(include: :user))
-    super(:methods => :list_recipe_ingredients)
-
-  end
-#return list of ingredients
-  def list_recipe_ingredients
-    recipe_ingredients.all
+    super(options.merge(include: {
+                            ingredients: {only: [:name]},
+                            user: { only: [:name,:id]}
+                                 }
+          ))
   end
 
+
+
+
+ 
 
 end
+
