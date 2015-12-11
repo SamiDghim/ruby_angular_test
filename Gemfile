@@ -5,8 +5,9 @@ gem 'will_paginate', '~> 3.0.7'
 #rails gem which wraps the beautiful Font Awesome icons library
 gem 'font-awesome-rails', '~> 4.2.0.0'
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
-
 gem 'carrierwave'
+
+
 #gem 'rmagick'
 gem 'angularjs-rails', '~> 1.2.22'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -35,6 +36,17 @@ gem 'angular_rails_csrf'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  #add factory_girl_rails as a fixtures replacement 
+  gem "factory_girl_rails"
+  #RSpec formatter
+  gem 'fuubar'
+  #for cleaning database 
+  gem 'database_cleaner'
+  # library that generates fake data.
+  gem 'faker', '~> 1.4.3'
 end
 
 group :development do
