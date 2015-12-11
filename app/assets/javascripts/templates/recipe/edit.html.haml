@@ -1,11 +1,11 @@
 %h1
   Edit Recipe
   %hr
-  %form.input-form{ ng_submit: 'addRecipe()' ,name:'addRecipeForm'}
-    .form-group.has-feedback{ng_class:"{ 'has-error' : addRecipeForm.title.$error.required  && addRecipeForm.title.$dirty ,'has-success' :  addRecipeForm.title.$dirty }"}
+  %form.input-form{ ng_submit: 'updateRecipe()' ,name:'updateRecipeForm'}
+    .form-group.has-feedback{ng_class:"{ 'has-error' : updateRecipeForm.title.$error.required  && updateRecipeForm.title.$dirty ,'has-success' :  updateRecipeForm.title.$dirty }"}
       %input.form-control{type: 'text', ng_model: 'newRecipe.title', placeholder: 'title' ,name:'title',id: 'titleInput'  , required:''}
-      %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : addRecipeForm.title.$error.required && addRecipeForm.title.$dirty ,'glyphicon-ok' : addRecipeForm.title.$dirty}"}
-      %p{ng_show:'addRecipeForm.title.$error.required  && !addRecipeForm.title.$pristine', class:"help-block"}
+      %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : updateRecipeForm.title.$error.required && updateRecipeForm.title.$dirty ,'glyphicon-ok' : updateRecipeForm.title.$dirty}"}
+      %p{ng_show:'updateRecipeForm.title.$error.required  && !updateRecipeForm.title.$pristine', class:"help-block"}
         This is required.
     .form-group
       %input{ng_model: 'image', type: 'file',class: 'file'}
@@ -13,11 +13,11 @@
       Rating :
       %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three','four ','five']", aria_labelledby: 'default-rating' }
       {{newRecipe.rating}}
-    .form-group.has-feedback{ng_class:"{ 'has-error' : addRecipeForm.description.$error.required  && addRecipeForm.description.$dirty ,'has-success' :  addRecipeForm.description.$dirty }"}
+    .form-group.has-feedback{ng_class:"{ 'has-error' : updateRecipeForm.description.$error.required  && updateRecipeForm.description.$dirty ,'has-success' :  updateRecipeForm.description.$dirty }"}
       %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description',name:'description',id: 'descriptionInput'  , required:''}
-      %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : addRecipeForm.description.$error.required && addRecipeForm.description.$dirty ,'glyphicon-ok' : addRecipeForm.description.$dirty}"}
-      %p{ng_show:'addRecipeForm.description.$error.required  && !addRecipeForm.description.$pristine', class:"help-block"}
+      %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : updateRecipeForm.description.$error.required && updateRecipeForm.description.$dirty ,'glyphicon-ok' : updateRecipeForm.description.$dirty}"}
+      %p{ng_show:'updateRecipeForm.description.$error.required  && !updateRecipeForm.description.$pristine', class:"help-block"}
         This is required.
     .form-group
-      %button.btn{type: 'submit', value:'add',ng_disabled: 'addRecipeForm.$invalid' }
+      %button.btn{type: 'submit', value:'add',ng_disabled: 'updateRecipeForm.$invalid' }
         Add

@@ -4,13 +4,11 @@
       User Recipes
     %hr
       .form-group
-        %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
-      .form-group
         %a{aria_label:'Left Align',href: '#/recipe/add'}
           %span.glyphicon.glyphicon-floppy-disk{aria_hidden:'true'}
           add new recipe
       %ul{ng_repeat: 'recipe in userRecipe'}
-        %li.list-group-item
+        %li.list-group-item{ng_click: 'detailRecipe(recipe)'}
           .media
             %img.thumbnail.pull-left{alt:'photo'}
             .media-body

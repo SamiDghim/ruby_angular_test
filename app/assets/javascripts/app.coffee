@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #Inject ngResource module into Angular application
-@cooking = angular.module( 'cookingRecipes', ['Devise', 'ngRoute','ngResource','ngAnimate','ui.bootstrap', 'templates'] )
+@cooking = angular.module( 'cookingRecipes', ['Devise', 'ngRoute','ngResource','ngAnimate','ui.bootstrap', 'templates','angularFileUpload'] )

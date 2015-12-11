@@ -15,6 +15,12 @@
   .when "/recipe/add",
     controller: 'profileCtrl'
     templateUrl: 'assets/templates/recipe/add.html'
+  .when "/recipe/detail",
+    controller: 'profileCtrl'
+    templateUrl: 'assets/templates/recipe/detail.html'
+  .when "/recipe/:id/edit",
+    controller: 'profileCtrl'
+    templateUrl: 'assets/templates/recipe/edit.html'
   .when "/home",
       templateUrl: 'assets/templates/home/index.html'
 
