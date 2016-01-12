@@ -10,13 +10,17 @@
           %p{ng_show:'addRecipeForm.title.$error.required  && !addRecipeForm.title.$pristine', class:"help-block"}
             This is required.
         .form-group
-          %input{type:"file" ,ng_file_select:"onFileSelect($files)"}
+          %input{type:"file",ng_model:"newRecipe.image", name:"image",ng_change:""}
         .form-group
           Rating :
           %uib-rating{ ng_model: 'newRecipe.rating', readonly: 'isReadonly', on_hover: 'hoveringOver(value)', on_leave:"overStar = null", titles: "['one','two','three','four ','five']", aria_labelledby: 'default-rating' }
           {{newRecipe.rating}}
         .form-group
           Ingredients :
+          %ul{ng_repeat: 'ingredient in ingredients'}
+            %li
+              %input{type:"checkbox",name:'ingredients',value:'ingredient'}
+                {{ingredient.name}}
         .form-group.has-feedback{ng_class:"{ 'has-error' : addRecipeForm.description.$error.required  && addRecipeForm.description.$dirty ,'has-success' :  addRecipeForm.description.$dirty }"}
           %textarea.form-control{ ng_model: 'newRecipe.description' , placeholder: 'description',name:'description',id: 'descriptionInput'  , required:''}
           %span.glyphicon.form-control-feedback{ng_class:"{ 'glyphicon-remove' : addRecipeForm.description.$error.required && addRecipeForm.description.$dirty ,'glyphicon-ok' : addRecipeForm.description.$dirty}"}

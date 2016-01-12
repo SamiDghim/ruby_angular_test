@@ -3,23 +3,26 @@
   $routeProvider
 
   .when "/login",
-    controller:  'authCtrl'
+    controller:  'AuthController'
     templateUrl: 'assets/templates/auth/_login.html'
 
   .when "/register",
-    controller:  'authCtrl'
+    controller:  'AuthController'
     templateUrl: 'assets/templates/auth/_register.html'
   .when "/profile",
-    controller: 'profileCtrl'
+    controller: 'ProfileController'
     templateUrl: 'assets/templates/profile/profile.html'
   .when "/recipe/add",
-    controller: 'profileCtrl'
+    controller: 'ProfileController'
     templateUrl: 'assets/templates/recipe/add.html'
+  .when "/recipe/image",
+    controller: 'ProfileController'
+    templateUrl: 'assets/templates/recipe/photo.html'
   .when "/recipe/detail",
-    controller: 'profileCtrl'
+    controller: 'ProfileController'
     templateUrl: 'assets/templates/recipe/detail.html'
   .when "/recipe/:id/edit",
-    controller: 'profileCtrl'
+    controller: 'ProfileController'
     templateUrl: 'assets/templates/recipe/edit.html'
   .when "/home",
       templateUrl: 'assets/templates/home/index.html'

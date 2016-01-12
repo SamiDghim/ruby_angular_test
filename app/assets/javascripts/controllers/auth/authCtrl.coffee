@@ -1,4 +1,4 @@
-@cooking.controller 'authCtrl', ($scope, Auth, $location) ->
+@cooking.controller 'AuthController', ($scope, Auth, $location) ->
   $scope.login = ->
     Auth.login($scope.user).then ((user)->
       #on login -> redirect to profile

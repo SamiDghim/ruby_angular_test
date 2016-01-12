@@ -1,14 +1,14 @@
 .row
-  .col-md-6.col-md-offset-3{ ng_controller: 'homeCtrl' }
+  .col-md-6.col-md-offset-3{ ng_controller: 'HomeController' }
     %h1
       Recipes
     %hr
       %p{ ng_show:  "signedIn()" }
-        Welcome {{ user.email }}
+        Welcome {{ user.name }}
       .form-group.has-feedback
         %input.form-control{:placeholder => 'Search: ',type: 'text', ng_change: 'searchRecipe()' ,ng_model: 'search'}
       %ul{ng_repeat: 'recipe in recipes'}
-        %li.list-group-item
+        %li.list-group-item{ng_click:'detailRecipe(recipe)'}
           .media
             %img.thumbnail.pull-left{alt:'photo'}
             .media-body
@@ -19,13 +19,6 @@
                   {{recipe.title}}
               %p.hidden-xs
                 {{recipe.description}}
-                %ul{ng_repeat: 'ingredient in recipe.ingredients'}
-                  %li
-                    {{ingredient.name}}
             .media-bottom
               %small.pull-right
                 publié : {{recipe.created_at  | date:'dd/MM/yyyy' }} par {{recipe.user.name}}
-      %button{ng_click: 'loadNextPage()'}
-        Next
-      %button{ng_click: 'loadPreviousPage()'}
-        Previous

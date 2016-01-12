@@ -4,10 +4,12 @@ source 'https://rubygems.org'
 gem 'will_paginate', '~> 3.0.7'
 #rails gem which wraps the beautiful Font Awesome icons library
 gem 'font-awesome-rails', '~> 4.2.0.0'
+
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
+
 gem 'carrierwave'
 
-
+gem 'newrelic_rpm'
 #gem 'rmagick'
 gem 'angularjs-rails', '~> 1.2.22'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,6 +49,11 @@ group :development, :test do
   gem 'database_cleaner'
   # library that generates fake data.
   gem 'faker', '~> 1.4.3'
+  gem 'rb-fsevent' , :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-livereload'
+  gem 'wdm', '>= 0.1.0'
+  gem 'teaspoon'
+   gem 'guard-teaspoon'
 end
 
 group :development do

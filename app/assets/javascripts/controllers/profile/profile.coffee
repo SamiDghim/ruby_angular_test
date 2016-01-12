@@ -1,21 +1,15 @@
-@cooking.controller 'profileCtrl', ($scope,$location ,restService,Auth, $upload) ->
+@cooking.controller 'ProfileController', ($scope,$location ,restService,Auth, Upload) ->
 
   Auth.currentUser().then  ((user) ->
+    $scope.addImage = -> 
+      $scope.upload($scope.image)
 
-    $scope.onFileSelect = (files) ->
-      i = 0
-
-      while i < files.length
-        file = $files[i]
-        $scope.upload = $upload.upload(
-          url: "images/"
-          data: {}
-          file: file
-        ).success(->
-          alert "finished!"
-        )
-        i++
-
+    $scope.upload = (file) ->
+      Upload.upload(
+        url: "/recipes.json"
+        method: 'POST'
+        data: {image: file}
+        )       
     $scope.isReadonly = false
 
     #return the recipes create by logged user
@@ -23,6 +17,7 @@
 
     #function to add recipe for logged user
     $scope.addRecipe = ->
+      #$scope.upload($scope.newRecipe.image)
       recipe = restService.recipes.create($scope.newRecipe)
       console.log(recipe)
       console.log($scope.newRecipe)
@@ -41,13 +36,20 @@
       recipe = restService.recipes.update($scope.newRecipe)
       $location.path 'profile'
 
-    $scope.detailRecipe = (recipe) ->
-      console.log(recipe)
-      detailRecipe = restService.recipes.show(id: 122)
-      $location.path 'recipe/detail'
+    $scope.detailRecipe = (id) ->
+     # console.log(recipe)
+      detailRecipe = restService.recipes.update(id: id)
+      console.log(detailRecipe)
+      #$location.path 'recipe/detail'
+    #delete recipe 
+    $scope.deleteRecipe = (id) -> 
+      restService.recipes.destroy(id: id)
+      $location.path 'profile'
 
     $scope.hoveringOver =(value) ->
       $scope.overStar = value;
+    
+
 
   ),(error) -> #if user not logged , return the login page
     $location.path 'login'

@@ -10,7 +10,6 @@ describe RecipesController, :type => :controller do
    before :each do
     # ensure an user is logged in
     #login_user create(:user)
-    # avoid rendering html of single page app (RSpec only)
     request.env["HTTP_ACCEPT"] = "application/json"
   end
 

@@ -8,8 +8,10 @@
           %span.glyphicon.glyphicon-floppy-disk{aria_hidden:'true'}
           add new recipe
       %ul{ng_repeat: 'recipe in userRecipe'}
-        %li.list-group-item{ng_click: 'detailRecipe(recipe)'}
+        %li.list-group-item{ng_click:'detailRecipe(recipe)'}
           .media
+            %span{ng_click: 'deleteRecipe(recipe.id)'}
+              X
             %img.thumbnail.pull-left{alt:'photo'}
             .media-body
               %h4.media-heading

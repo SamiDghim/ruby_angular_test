@@ -1,49 +1,24 @@
 
 /*! CSS STYLE BY SAMI DGHIM */
-
 /*! BODY
-
-
-
-ul :hover{
-    cursor:pointer;
-    background-color: transparent;
-}
-
 #searchBox{
      border: solid;
         border-radius: 11px ;
      padding: 9px;
 }
-
-
 */
-.star-rating {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-}
-.star-rating .star {
-    padding: 1px;
-    color: #ddd;
-    font-size: 20px;
-    text-shadow: .05em .05em #aaa;
-    list-style-type: none;
-    display: inline-block;
-    cursor: pointer;
-}
-.star-rating .star.filled {
-    color: #fd0;
-}
-.star-rating.readonly .star.filled {
-    color: #666;
-}
 ul{
     width: 100%;
     padding-right: 30px;
-    cursor:pointer;
     background-color: transparent;
 }
+a.show :hover{
+    cursor: pointer;
+
+}
+ul :hover{
+     background-color: #eeeeee;
+ }
 img {
     height: 90px;
     width:  90px;

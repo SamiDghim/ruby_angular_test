@@ -1,4 +1,4 @@
-@cooking.controller 'homeCtrl', ($scope,$location,restService,Auth) ->
+@cooking.controller 'HomeController', ($scope,$location,restService,Auth) ->
   counter = 1;
   $scope.recipes = restService.recipes.index()
   console.log(Auth._currentUser)
@@ -9,19 +9,8 @@
       search: $scope.search
     )
 
-  #$scope.detailRecipe = (recipe) ->
-   # console.log(recipe)
-
-   # console.log(detailRecipe)
+  $scope.detailRecipe = (recipe) ->
+    console.log(recipe)
     #$location.path 'recipe/detail'
 
 
-  #load the next page
-  $scope.loadNextPage  = ->
-    $scope.recipes = restService.recipes.index({page: counter})
-    counter += 1 ;
-
-  #load previouspage
-  $scope.loadPreviousPage  = ->
-    $scope.recipes = restService.recipes.index({page: counter})
-    counter -= 1 ;

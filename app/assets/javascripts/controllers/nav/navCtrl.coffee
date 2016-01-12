@@ -1,4 +1,4 @@
-@cooking.controller 'navCtrl', ($scope, Auth, $location) ->
+@cooking.controller 'NavController', ($scope, Auth, $location) ->
   $scope.signedIn = Auth.isAuthenticated
   $scope.logout   = Auth.logout
 

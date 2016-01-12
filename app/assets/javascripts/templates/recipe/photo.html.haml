@@ -1,0 +1,11 @@
+.row
+  .col-md-4.col-md-offset-4
+    %h1
+      Recipe Image
+    %hr
+      %form.input-form{ ng_submit: 'addImage()'}
+        .form-group
+          %input{type:"file" , ngf_select:'', ng_model:"image", name:"image"}
+        .form-group
+          %button.btn{type: 'submit', value:'add'}
+            Add

@@ -7,7 +7,7 @@ class Recipe < ActiveRecord::Base
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
 
-  belongs_to :user
+  belongs_to :user , :foreign_key => :user_id
   mount_uploader :image, ImageUploader
   #isfavorite set to false by default
    def init
@@ -21,7 +21,7 @@ class Recipe < ActiveRecord::Base
   #Override the as_json method to include the user and recipe ingredients:
   def as_json(options = {})
     super(options.merge(include: {
-                            ingredients: {only: [:name]},
+                            ingredients: {only: [:name,:id]},
                             user: { only: [:name,:id]}
                                  }
           ))

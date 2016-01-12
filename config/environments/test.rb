@@ -31,8 +31,8 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-  # Randomize the order test cases are executed.
-  config.active_support.test_order = :random
+  #Rails 4.2: Ordering of test cases
+  config.active_support.test_order = :sorted
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
