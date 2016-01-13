@@ -12,16 +12,17 @@ class RecipesController < ApplicationController
    def index
      if search = params[:search]
      #filter recipes by title and description sorted by date of publication.(call search method of Recipe model)
-      respond_with Recipe.search(search).order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
+      respond_with Recipe.search(search).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 3)
        #return recipes for logged user
      elsif user_signed_in?
-       @userRecipes = User.find(current_user.id).recipes.order(created_at: :desc).all.paginate(:page => params[:page], :per_page => 3) 
+       @userRecipes = User.find(current_user.id).recipes.order(created_at: :desc).all
        respond_with(@userRecipes, status: 200)
      else
        #return all recipes sorted by date of publication.
-       @recipes = Recipe.order(created_at: :desc).all.paginate(:page => params[:page], :per_page => 3)  
+       @recipes = Recipe.order(created_at: :desc).all 
 
        respond_with(@recipes, status: 200)
+       #.paginate(:page => params[:page], :per_page => 3) 
      end
    end
 
