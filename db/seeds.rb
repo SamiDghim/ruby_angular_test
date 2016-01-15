@@ -15,7 +15,7 @@ ingredient4=Ingredient.create(name:'peppers')
 ingredient5=Ingredient.create(name:'olive oil')
 
 # create the list of recipes
-puts 'Create a list of recipes ='
+puts 'Create a list of recipes :'
 
 puts 'Recipe 1 :'
 recipe1 = Recipe.create(title: 'recipe1',description:'description for recipe 1',rating:1,isfavorite:true)
