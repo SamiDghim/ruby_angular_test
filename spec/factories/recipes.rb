@@ -7,7 +7,6 @@ FactoryGirl.define do
         sequence(:description) { |n| "description#{n}" }
         rating 2
         isfavorite true
-       # sequence(:photo) { |n| "nooo-#{n}" }
     end
      
     factory :recipe do
